@@ -1,7 +1,7 @@
 
 [![build status](https://api.travis-ci.org/cyrillef/models.autodesk.io.png)](https://travis-ci.org/cyrillef/models.autodesk.io)
-[![Node.js](https://img.shields.io/badge/Node.js-6.3.1-blue.svg)](https://nodejs.org/)
-[![npm](https://img.shields.io/badge/npm-3.10.3-blue.svg)](https://www.npmjs.com/)
+[![.Net](https://img.shields.io/badge/.Net-4.5-blue.svg)](https://msdn.microsoft.com/)
+[![NuGet](https://img.shields.io/nuget/v/Nuget.Core.svg)](https://www.nuget.org/)
 ![Platforms](https://img.shields.io/badge/platform-windows%20%7C%20osx%20%7C%20linux-lightgray.svg)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://opensource.org/licenses/MIT)
 
@@ -12,14 +12,14 @@
 [![Model-Derivative](https://img.shields.io/badge/Model%20Derivative-v2-green.svg)](http://developer-autodesk.github.io/)
 [![Viewer](https://img.shields.io/badge/Forge%20Viewer-v2.12-green.svg)](http://developer-autodesk.github.io/)
 
-# forge.commandline-nodejs
+# forge.commandline-csharp
 
 
 <b>Note:</b> For using this sample, you need a valid oAuth credential.
 Visit this [page](https://developer.autodesk.com) for instructions to get on-board.
 
 
-Demonstrates the Autodesk Forge API authorisation and translation process using a Node.js console application.
+Demonstrates the Autodesk Forge API authorisation and translation process using a C#/.Net console application.
 
 * both 2 legged and 3 legged
 * support both callback and promises
@@ -45,8 +45,8 @@ Visual Studio 2015, .Net Framework 4.5+
 
   1. Download (fork, or clone) this project.
   2. Request your consumer key/secret key from [https://developer.autodesk.com](https://developer.autodesk.com).
-  3. Set 2 environment variables FORGE_CLIENT_ID / FORGE_CLIENT_SECRET, or edit the forge-cb.js and forge-promise.js
-     files and replace the placeholders by the consumer key/secret keys.
+  3. Set 2 environment variables FORGE_CLIENT_ID / FORGE_CLIENT_SECRET, or edit the Program.cs
+     file and replace the placeholders by the consumer key/secret keys.
   4. *Note* for the 3 legged command: while registering your keys, make sure that the callback you define for your
      callback (or redirect_uri) is set in an environment variable named FORGE_CALLBACK.
      Default is : http://localhost:3006/oauth
