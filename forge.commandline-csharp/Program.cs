@@ -901,8 +901,6 @@ namespace forge.commandline_csharp {
 			return (false) ;
 		}
 
-		// todo errorHandler
-
 		public static bool hasOwnProperty (dynamic obj, string name) {
 			try {
 				var test =obj [name] ;
