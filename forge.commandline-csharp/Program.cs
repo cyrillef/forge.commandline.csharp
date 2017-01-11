@@ -56,6 +56,10 @@ namespace forge.commandline_csharp {
         public string code { get; set; }
 	}
 
+	[Verb ("aboutme", HelpText = "3legged aboutme information")]
+	class AboutMeOptions {
+	}
+
 	[Verb ("buckets", HelpText = "list local/server buckets")]
 	class BucketsOptions {
 		[Option('s', "server", SetName = "server", Default = false, HelpText = "list from server vs local")]
@@ -227,6 +231,7 @@ namespace forge.commandline_csharp {
 			Parser.Default.ParseArguments (args, new [] {
 				typeof (TwoLeggedOptions),
 				typeof (ThreeLeggedOptions),
+				typeof (AboutMeOptions),
 				typeof (BucketsOptions),
 				typeof (BucketOptions),
 				typeof (BucketCreateOptions),
@@ -248,6 +253,7 @@ namespace forge.commandline_csharp {
 			})
 				.WithParsed<TwoLeggedOptions> (opts => RunTwoLegged (opts))
 				.WithParsed<ThreeLeggedOptions> (opts => RunThreeLegged (opts))
+				.WithParsed<AboutMeOptions> (opts => RunAboutMe (opts))
 				.WithParsed<BucketsOptions> (opts => RunBuckets (opts))
 				.WithParsed<BucketOptions> (opts => RunBucket (opts))
 				.WithParsed<BucketCreateOptions> (opts => RunBucketCreate (opts))
@@ -404,6 +410,21 @@ namespace forge.commandline_csharp {
 					Console.Error.WriteLine ("Exception when calling ThreeLeggedApi.Gettoken: " + ex.Message) ;
 					return (1) ;
 				}			
+			}
+			return (0) ;
+		}
+
+		internal static int RunAboutMe (AboutMeOptions opts) {
+			try {
+				Console.WriteLine ("About Me!...") ;
+				InformationalApi oa3Info =new InformationalApi () ;
+				oa3Info.Configuration.AccessToken =access_token () ;
+				ApiResponse<dynamic> response =oa3Info.AboutMeWithHttpInfo () ;
+				httpErrorHandler (response, "Failed to access user information") ;
+				Console.WriteLine (response.Data.ToString () as string) ;
+			} catch ( Exception ex ) {
+				Console.Error.WriteLine ("Exception when calling InformationalApi.AboutMeWithHttpInfo: " + ex.Message) ;
+				return (2) ;
 			}
 			return (0) ;
 		}
