@@ -20,7 +20,7 @@
 // SOFTWARE.
 //
 // by Cyrille Fauvel
-// Autodesk Forge Partner Development)
+// Autodesk Forge Partner Development
 // January 2017
 //
 using System;
@@ -282,8 +282,9 @@ namespace forge.commandline_csharp {
 		private static string FORGE_CALLBACK =null ; // 'http://localhost:' + PORT + '/oauth' ;
 
 		private static string grantType ="client_credentials" ; // {String} Must be ``client_credentials``
-		private static string scope ="data:read data:write data:create data:search bucket:create bucket:read bucket:update bucket:delete" ;
-		private static string scopeViewer ="data:read" ;
+		private static Scope[] scope =new Scope[] { Scope.DataRead, Scope.DataWrite, Scope.DataCreate,
+				Scope.DataSearch, Scope.BucketCreate, Scope.BucketRead, Scope.BucketUpdate, Scope.BucketDelete } ;
+		private static Scope[] scopeViewer =new Scope[] { Scope.DataRead } ;
 
 		internal static bool readKeys () {
 			FORGE_CLIENT_ID =Environment.GetEnvironmentVariable ("FORGE_CLIENT_ID") ;

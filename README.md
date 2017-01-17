@@ -22,7 +22,7 @@ Visit this [page](https://developer.autodesk.com) for instructions to get on-boa
 Demonstrates the Autodesk Forge API authorisation and translation process using a C#/.Net console application.
 
 * both 2 legged and 3 legged
-* support both callback and promises
+* uses synchronous methods
 
 
 ## Description
@@ -53,7 +53,7 @@ Visual Studio 2015, .Net Framework 4.5+
   5. Load the project in Visual Studio 2015, and build the solution
   
 
-A typical workflow is (replace -cb by -promise if you want to use promises vs callbacks):
+A typical workflow is:
 
     # Do authentication.
     forge.commandline-csharp.exe 2legged
